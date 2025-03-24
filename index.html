@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Oceanic F&B Menu</title>
+  <!-- Importing Poppins font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <!-- Sidebar Navigation -->
@@ -26,36 +29,71 @@
     <button class="toggle-btn" onclick="toggleSidebar()">Close</button>
   </aside>
 
-  <!-- Toggle Button (when sidebar is closed) -->
-  <button id="bubbleToggle" class="bubble" onclick="toggleSidebar()">☰</button>
+  <!-- Bubble Toggle Button (visible when sidebar is closed) -->
+  <button id="bubbleToggle" class="bubble" onclick="toggleSidebar()">&#9776;</button>
 
-  <!-- Menu Content -->
+  <!-- Main Menu Content -->
   <main class="menu-container">
     <section id="hot-drinks" class="menu-section">
       <h2>Hot Drinks</h2>
-      <div class="menu-item"><span>Immunity Booster</span> <span class="price">₹290</span> <button onclick="addToOrder('Immunity Booster', 290)">Add</button></div>
-      <div class="menu-item"><span>Masala Tea</span> <span class="price">₹150</span> <button onclick="addToOrder('Masala Tea', 150)">Add</button></div>
+      <div class="menu-item">
+        <span>Immunity Booster</span>
+        <span class="price">₹290</span>
+        <button onclick="addToOrder('Immunity Booster', 290)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Masala Tea</span>
+        <span class="price">₹150</span>
+        <button onclick="addToOrder('Masala Tea', 150)">Add</button>
+      </div>
     </section>
 
     <section id="cold-drinks" class="menu-section">
       <h2>Cold Drinks</h2>
-      <div class="menu-item"><span>Aam Panna</span> <span class="price">₹250</span> <button onclick="addToOrder('Aam Panna', 250)">Add</button></div>
-      <div class="menu-item"><span>Cold Coffee</span> <span class="price">₹290</span> <button onclick="addToOrder('Cold Coffee', 290)">Add</button></div>
+      <div class="menu-item">
+        <span>Aam Panna</span>
+        <span class="price">₹250</span>
+        <button onclick="addToOrder('Aam Panna', 250)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Cold Coffee</span>
+        <span class="price">₹290</span>
+        <button onclick="addToOrder('Cold Coffee', 290)">Add</button>
+      </div>
     </section>
 
     <section id="pasta" class="menu-section">
       <h2>Pasta</h2>
-      <div class="menu-item"><span>Penne Alfredo</span> <span class="price">₹490</span> <button onclick="addToOrder('Penne Alfredo', 490)">Add</button></div>
-      <div class="menu-item"><span>Spaghetti Aglio-e-Olio</span> <span class="price">₹490</span> <button onclick="addToOrder('Spaghetti Aglio-e-Olio', 490)">Add</button></div>
+      <div class="menu-item">
+        <span>Penne Alfredo</span>
+        <span class="price">₹490</span>
+        <button onclick="addToOrder('Penne Alfredo', 490)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Spaghetti Aglio-e-Olio</span>
+        <span class="price">₹490</span>
+        <button onclick="addToOrder('Spaghetti Aglio-e-Olio', 490)">Add</button>
+      </div>
     </section>
 
     <section id="cocktails" class="menu-section">
       <h2>Cocktails</h2>
-      <div class="menu-item"><span>Mojito</span> <span class="price">₹450</span> <button onclick="addToOrder('Mojito', 450)">Add</button></div>
-      <div class="menu-item"><span>Cosmopolitan</span> <span class="price">₹550</span> <button onclick="addToOrder('Cosmopolitan', 550)">Add</button></div>
+      <div class="menu-item">
+        <span>Mojito</span>
+        <span class="price">₹450</span>
+        <button onclick="addToOrder('Mojito', 450)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Cosmopolitan</span>
+        <span class="price">₹550</span>
+        <button onclick="addToOrder('Cosmopolitan', 550)">Add</button>
+      </div>
     </section>
 
-    <section id="order-summary">
+    <!-- Additional sections (Salads, Bar Bites, Breakfast, Mocktails, Beers, Spirits) can be added similarly -->
+
+    <!-- Order Summary Section -->
+    <section id="order-summary" class="menu-section">
       <h2>Order Summary</h2>
       <ul id="order-list"></ul>
       <p>Total: ₹<span id="total-price">0</span></p>
