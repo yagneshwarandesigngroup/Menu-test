@@ -1,7 +1,5 @@
-
 let order = [];
 let totalPrice = 0;
-let sidebarOpen = true;
 
 function addToOrder(item, price) {
   order.push({ item, price });
@@ -46,16 +44,6 @@ function confirmOrder() {
 function toggleSidebar() {
   const sidebar = document.getElementById("sidebar");
   const bubble = document.getElementById("bubbleToggle");
-  sidebarOpen = !sidebarOpen;
-  console.log("Sidebar open:", sidebarOpen);
-
-  if (sidebarOpen) {
-    sidebar.classList.remove("hidden");
-    bubble.style.display = "none";
-    document.body.classList.remove("sidebar-hidden");
-  } else {
-    sidebar.classList.add("hidden");
-    bubble.style.display = "block";
-    document.body.classList.add("sidebar-hidden");
-  }
+  sidebar.classList.toggle("hidden");
+  bubble.style.display = sidebar.classList.contains("hidden") ? "block" : "none";
 }
