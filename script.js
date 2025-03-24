@@ -1,9 +1,8 @@
-// Use an object to track order: keys are item names, value is an object { count, price }
+// Track order as an object: keys are item names, value is { count, price }
 let order = {};
 let totalPrice = 0;
 
 function addToOrder(item, price, btn) {
-  // Add animation class for button
   btn.classList.add("clicked");
   setTimeout(() => btn.classList.remove("clicked"), 300);
   
@@ -17,7 +16,6 @@ function addToOrder(item, price, btn) {
 }
 
 function updateButtonText(item) {
-  // Find the button with data-item attribute matching item
   const btn = document.querySelector(`button[data-item="${item}"]`);
   if (btn) {
     btn.textContent = order[item] ? `Add (${order[item].count})` : "Add";
@@ -72,13 +70,9 @@ const tabPanels = document.querySelectorAll('.tab-panel');
 
 tabs.forEach(tab => {
   tab.addEventListener('click', () => {
-    // Remove active state from all tabs and panels
     tabs.forEach(t => t.classList.remove('active'));
     tabPanels.forEach(panel => panel.classList.remove('active'));
-    
-    // Activate the clicked tab and its corresponding panel
     tab.classList.add('active');
-    const activePanel = document.getElementById(tab.getAttribute('data-tab'));
-    activePanel.classList.add('active');
+    document.getElementById(tab.getAttribute('data-tab')).classList.add('active');
   });
 });
