@@ -1,44 +1,35 @@
-/* General Reset and Base Styling */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
-  font-size: 0.8rem; /* Approximately 50% smaller than default */
   background: #ffffff;
-  color: #03396c; /* Sea blue text */
+  color: #03396c;
   display: flex;
 }
 
-/* Sidebar Styles */
 .sidebar {
   position: fixed;
   left: 0;
   top: 0;
   width: 250px;
   height: 100%;
-  background: #03396c; /* Sea blue vibe */
+  background: #03396c;
   color: #fff;
   padding: 20px;
-  overflow-y: auto;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s;
 }
 
 .sidebar.hidden {
   transform: translateX(-100%);
 }
 
-.sidebar h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
 .sidebar ul {
   list-style: none;
-  padding: 0;
 }
 
 .sidebar ul li {
@@ -53,24 +44,8 @@ body {
   background: #026494;
   border-radius: 5px;
   text-align: center;
-  transition: background 0.3s;
 }
 
-.sidebar ul li a:hover {
-  background: #0288d1;
-}
-
-.toggle-btn {
-  margin-top: 20px;
-  background: #0288d1;
-  color: #fff;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/* Bubble Toggle Button: Positioned center left when sidebar is closed */
 .bubble {
   display: none;
   position: fixed;
@@ -85,15 +60,12 @@ body {
   height: 50px;
   font-size: 1.5rem;
   cursor: pointer;
-  z-index: 1000;
 }
 
-/* Main Content Styles */
 .menu-container {
   margin-left: 270px;
   padding: 20px;
   width: calc(100% - 270px);
-  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
 }
 
 .menu-section {
@@ -101,64 +73,10 @@ body {
   padding: 15px;
   border-radius: 10px;
   margin-bottom: 20px;
-  box-shadow: 2px 2px 10px rgba(3, 57, 108, 0.2);
 }
 
-.menu-section h2 {
-  border-bottom: 2px solid #03396c;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
-  color: #03396c;
-}
-
-.menu-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 0;
-}
-
-.price {
-  font-weight: bold;
-  color: #03396c;
-}
-
-button {
-  background: #03396c;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-button:hover {
-  background: #026494;
-}
-
-/* Order Summary Styles */
 #order-summary {
   background: #f0f8ff;
   padding: 15px;
   border-radius: 10px;
-  margin-top: 20px;
-  box-shadow: 2px 2px 10px rgba(3, 57, 108, 0.2);
-}
-
-#order-summary ul {
-  list-style: none;
-  padding: 0;
-}
-
-#order-summary ul li {
-  display: flex;
-  justify-content: space-between;
-  padding: 5px 0;
-}
-
-/* Adjust layout when sidebar is hidden */
-body.sidebar-hidden .menu-container {
-  margin-left: 20px;
-  width: calc(100% - 20px);
 }
