@@ -1,9 +1,27 @@
-let order = [];
+// Use an object to track order: keys are item names, value is an object { count, price }
+let order = {};
 let totalPrice = 0;
 
-function addToOrder(item, price) {
-  order.push({ item, price });
+function addToOrder(item, price, btn) {
+  // Add animation class for button
+  btn.classList.add("clicked");
+  setTimeout(() => btn.classList.remove("clicked"), 300);
+  
+  if (!order[item]) {
+    order[item] = { count: 1, price: price };
+  } else {
+    order[item].count++;
+  }
   updateOrderSummary();
+  updateButtonText(item);
+}
+
+function updateButtonText(item) {
+  // Find the button with data-item attribute matching item
+  const btn = document.querySelector(`button[data-item="${item}"]`);
+  if (btn) {
+    btn.textContent = order[item] ? `Add (${order[item].count})` : "Add";
+  }
 }
 
 function updateOrderSummary() {
@@ -12,29 +30,37 @@ function updateOrderSummary() {
   orderList.innerHTML = "";
   totalPrice = 0;
   
-  order.forEach(({ item, price }, index) => {
-    totalPrice += price;
-    const li = document.createElement("li");
-    li.innerHTML = `${item} - ₹${price} <button onclick="removeItem(${index})">X</button>`;
-    orderList.appendChild(li);
-  });
-  
+  for (const item in order) {
+    if (order.hasOwnProperty(item)) {
+      totalPrice += order[item].price * order[item].count;
+      const li = document.createElement("li");
+      li.innerHTML = `${item} - ₹${order[item].price} x ${order[item].count} <button onclick="removeItem('${item}')">X</button>`;
+      orderList.appendChild(li);
+    }
+  }
   totalPriceElement.innerText = totalPrice;
 }
 
-function removeItem(index) {
-  order.splice(index, 1);
-  updateOrderSummary();
+function removeItem(item) {
+  if (order[item]) {
+    order[item].count--;
+    if (order[item].count <= 0) {
+      delete order[item];
+    }
+    updateOrderSummary();
+    updateButtonText(item);
+  }
 }
 
 function confirmOrder() {
-  if (order.length === 0) {
+  const items = Object.keys(order);
+  if (items.length === 0) {
     alert("Your order is empty!");
     return;
   }
   let summary = "Your Order:\n";
-  order.forEach(({ item, price }) => {
-    summary += `${item} - ₹${price}\n`;
+  items.forEach(item => {
+    summary += `${item} - ₹${order[item].price} x ${order[item].count}\n`;
   });
   summary += `Total: ₹${totalPrice}`;
   alert(summary);
