@@ -47,11 +47,11 @@ function toggleSidebar() {
   const sidebar = document.getElementById("sidebar");
   const bubble = document.getElementById("bubbleToggle");
   sidebarOpen = !sidebarOpen;
+  console.log("Sidebar open:", sidebarOpen);
 
   if (sidebarOpen) {
     sidebar.classList.remove("hidden");
     bubble.style.display = "none";
-    // Restore main content margin
     document.body.classList.remove("sidebar-hidden");
   } else {
     sidebar.classList.add("hidden");
