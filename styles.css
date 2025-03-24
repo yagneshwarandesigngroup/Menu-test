@@ -14,19 +14,19 @@ body {
 /* TAB NAVIGATION (File System Look) */
 .tab-container {
   background: #03396c;
-  padding: 0 10px;
 }
 .tabs {
   display: flex;
   overflow-x: auto;
   border-bottom: 2px solid #0288d1;
+  margin-bottom: 0;
 }
 .tabs .tab {
   flex: 1;
   background: #026494;
   color: #fff;
   border: none;
-  padding: 10px 5px;
+  padding: 10px;
   cursor: pointer;
   transition: background 0.3s, transform 0.3s;
   font-size: 0.9rem;
@@ -38,7 +38,7 @@ body {
   background: #0288d1;
   transform: translateY(-2px);
 }
-/* Active tab merges with panel by turning white */
+/* Active tab merges seamlessly with panel */
 .tabs .tab.active {
   background: #ffffff;
   color: #03396c;
@@ -47,7 +47,6 @@ body {
 
 /* TAB PANELS */
 .tab-content {
-  padding: 20px;
   border: 2px solid #0288d1;
   border-top: none;
   border-bottom-left-radius: 10px;
@@ -58,6 +57,7 @@ body {
   display: none;
   opacity: 0;
   transition: opacity 0.3s ease;
+  padding: 20px;
 }
 .tab-panel.active {
   display: block;
@@ -81,7 +81,7 @@ body {
 }
 .price {
   font-weight: bold;
-  margin-right: 10px;
+  margin-right: 8px;
 }
 
 /* BUTTONS & ANIMATION */
