@@ -9,17 +9,17 @@ function addToOrder(item, price) {
 function updateOrderSummary() {
   const orderList = document.getElementById("order-list");
   const totalPriceElement = document.getElementById("total-price");
-
+  
   orderList.innerHTML = "";
   totalPrice = 0;
-
+  
   order.forEach(({ item, price }, index) => {
     totalPrice += price;
-    let listItem = document.createElement("li");
+    const listItem = document.createElement("li");
     listItem.innerHTML = `${item} - ₹${price} <button onclick="removeItem(${index})">X</button>`;
     orderList.appendChild(listItem);
   });
-
+  
   totalPriceElement.innerText = totalPrice;
 }
 
@@ -33,6 +33,7 @@ function confirmOrder() {
     alert("Your order is empty!");
     return;
   }
+  
   let orderSummary = "Your Order:\n";
   order.forEach(({ item, price }) => {
     orderSummary += `${item} - ₹${price}\n`;
@@ -44,6 +45,14 @@ function confirmOrder() {
 function toggleSidebar() {
   const sidebar = document.getElementById("sidebar");
   const bubble = document.getElementById("bubbleToggle");
+  
+  // Toggle the hidden class
   sidebar.classList.toggle("hidden");
-  bubble.style.display = sidebar.classList.contains("hidden") ? "block" : "none";
+  
+  // Display bubble button only when sidebar is hidden
+  if (sidebar.classList.contains("hidden")) {
+    bubble.style.display = "block";
+  } else {
+    bubble.style.display = "none";
+  }
 }
