@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oceanic F&B Menu - Tabbed Interface</title>
+  <title>Oceanic F&B Menu - File System Tabs</title>
   <!-- Import Poppins font for a modern vintage look -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,10 +16,11 @@
     <div class="tabs">
       <button class="tab active" data-tab="hot-drinks">Hot Drinks</button>
       <button class="tab" data-tab="cold-drinks">Cold Drinks</button>
+      <button class="tab" data-tab="raw-juices">Raw Juices & Smoothies</button>
       <button class="tab" data-tab="salads">Salads</button>
       <button class="tab" data-tab="pasta">Pasta</button>
       <button class="tab" data-tab="bar-bites">Bar Bites</button>
-      <button class="tab" data-tab="breakfast">Breakfast</button>
+      <button class="tab" data-tab="breakfast">Breakfast & Snacks</button>
       <button class="tab" data-tab="cocktails">Cocktails</button>
       <button class="tab" data-tab="mocktails">Mocktails</button>
       <button class="tab" data-tab="beers">Beers</button>
@@ -38,9 +39,49 @@
         <button onclick="addToOrder('Immunity Booster', 290)">Add</button>
       </div>
       <div class="menu-item">
+        <span>Hibiscus/Chamomile/Tulsi Honey/Pure Green Tea</span>
+        <span class="price">₹150</span>
+        <button onclick="addToOrder('Green Tea', 150)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Orange Pekoe / Flavoury Tea (Rose) / Blue Tea</span>
+        <span class="price">₹290</span>
+        <button onclick="addToOrder('Orange Pekoe Tea', 290)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Black Tea</span>
+        <span class="price">₹90</span>
+        <button onclick="addToOrder('Black Tea', 90)">Add</button>
+      </div>
+      <div class="menu-item">
         <span>Masala Tea</span>
         <span class="price">₹150</span>
         <button onclick="addToOrder('Masala Tea', 150)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Milk Coffee</span>
+        <span class="price">₹120</span>
+        <button onclick="addToOrder('Milk Coffee', 120)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>French Press Coffee</span>
+        <span class="price">₹190</span>
+        <button onclick="addToOrder('French Press Coffee', 190)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Espresso (Single)</span>
+        <span class="price">₹190</span>
+        <button onclick="addToOrder('Espresso (Single)', 190)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Espresso (Double)</span>
+        <span class="price">₹290</span>
+        <button onclick="addToOrder('Espresso (Double)', 290)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Americano / Cappuccino / Latte / Macchiato / Flat White</span>
+        <span class="price">₹290</span>
+        <button onclick="addToOrder('Americano/Cappuccino/etc', 290)">Add</button>
       </div>
     </div>
     
@@ -48,14 +89,115 @@
     <div class="tab-panel" id="cold-drinks">
       <h2>Cold Drinks</h2>
       <div class="menu-item">
-        <span>Aam Panna</span>
+        <span>Aam Panna (Summer Special)</span>
         <span class="price">₹250</span>
         <button onclick="addToOrder('Aam Panna', 250)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Solkadhi</span>
+        <span class="price">₹250</span>
+        <button onclick="addToOrder('Solkadhi', 250)">Add</button>
+      </div>
+      <!-- Fresh Fruit Juices -->
+      <div class="menu-item">
+        <span>Watermelon Juice</span>
+        <span class="price">₹200</span>
+        <button onclick="addToOrder('Watermelon Juice', 200)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Pineapple Juice</span>
+        <span class="price">₹250</span>
+        <button onclick="addToOrder('Pineapple Juice', 250)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Mango Juice</span>
+        <span class="price">₹250</span>
+        <button onclick="addToOrder('Mango Juice', 250)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Papaya Juice</span>
+        <span class="price">₹250</span>
+        <button onclick="addToOrder('Papaya Juice', 250)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Orange Juice</span>
+        <span class="price">₹250</span>
+        <button onclick="addToOrder('Orange Juice', 250)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Mix Fruit Juice</span>
+        <span class="price">₹280</span>
+        <button onclick="addToOrder('Mix Fruit Juice', 280)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Milk Shake (various flavors)</span>
+        <span class="price">₹350</span>
+        <button onclick="addToOrder('Milk Shake', 350)">Add</button>
       </div>
       <div class="menu-item">
         <span>Cold Coffee</span>
         <span class="price">₹290</span>
         <button onclick="addToOrder('Cold Coffee', 290)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Red Bull</span>
+        <span class="price">₹250</span>
+        <button onclick="addToOrder('Red Bull', 250)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Soft Drinks / Mixers</span>
+        <span class="price">₹150</span>
+        <button onclick="addToOrder('Soft Drinks', 150)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Lime Soda (Sweet/Salted)</span>
+        <span class="price">₹120</span>
+        <button onclick="addToOrder('Lime Soda', 120)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Plain Soda</span>
+        <span class="price">₹60</span>
+        <button onclick="addToOrder('Plain Soda', 60)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Coconut Water</span>
+        <span class="price">₹150</span>
+        <button onclick="addToOrder('Coconut Water', 150)">Add</button>
+      </div>
+    </div>
+    
+    <!-- Raw Juices & Smoothies -->
+    <div class="tab-panel" id="raw-juices">
+      <h2>Raw Juices & Smoothies</h2>
+      <div class="menu-item">
+        <span>Sweet Immunity</span>
+        <span class="price">₹350</span>
+        <button onclick="addToOrder('Sweet Immunity', 350)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Heartbeat (Apple, Beetroot, Carrot, Lemon, Mint, Ginger)</span>
+        <span class="price">₹350</span>
+        <button onclick="addToOrder('Heartbeat', 350)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Green Machine (Spinach, Green Apple, Cucumber, Basil, Kale, Lemon, Mint)</span>
+        <span class="price">₹390</span>
+        <button onclick="addToOrder('Green Machine', 390)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Full Immunity (Apple, Pineapple, Mint)</span>
+        <span class="price">₹350</span>
+        <button onclick="addToOrder('Full Immunity', 350)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Rejuvenator (Fennel, Apple, Lemon)</span>
+        <span class="price">₹350</span>
+        <button onclick="addToOrder('Rejuvenator', 350)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Mix Fruit (Custom blend)</span>
+        <span class="price">₹390</span>
+        <button onclick="addToOrder('Mix Fruit Blend', 390)">Add</button>
       </div>
     </div>
     
@@ -72,20 +214,28 @@
         <span class="price">₹390</span>
         <button onclick="addToOrder('Greek Salad', 390)">Add</button>
       </div>
+      <div class="menu-item">
+        <span>Avocado Salad</span>
+        <span class="price">₹450</span>
+        <button onclick="addToOrder('Avocado Salad', 450)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Caesar Salad</span>
+        <span class="price">₹450</span>
+        <button onclick="addToOrder('Caesar Salad', 450)">Add</button>
+      </div>
     </div>
     
     <!-- Pasta -->
     <div class="tab-panel" id="pasta">
       <h2>Pasta</h2>
       <div class="menu-item">
-        <span>Penne Alfredo</span>
+        <span>Pasta (Penne / Fettuccine / Spaghetti)</span>
         <span class="price">₹490</span>
-        <button onclick="addToOrder('Penne Alfredo', 490)">Add</button>
+        <button onclick="addToOrder('Pasta', 490)">Add</button>
       </div>
       <div class="menu-item">
-        <span>Spaghetti Aglio-e-Olio</span>
-        <span class="price">₹490</span>
-        <button onclick="addToOrder('Spaghetti Aglio-e-Olio', 490)">Add</button>
+        <span>Options: Pesto / Arrabbiata / Alfredo / Aglio-e-Olio</span>
       </div>
     </div>
     
@@ -98,15 +248,25 @@
         <button onclick="addToOrder('Plain Cashew', 190)">Add</button>
       </div>
       <div class="menu-item">
+        <span>Salted Cashew (50g)</span>
+        <span class="price">₹250</span>
+        <button onclick="addToOrder('Salted Cashew', 250)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Plain Peanut</span>
+        <span class="price">₹90</span>
+        <button onclick="addToOrder('Plain Peanut', 90)">Add</button>
+      </div>
+      <div class="menu-item">
         <span>Peanut Chat</span>
         <span class="price">₹190</span>
         <button onclick="addToOrder('Peanut Chat', 190)">Add</button>
       </div>
     </div>
     
-    <!-- Breakfast -->
+    <!-- Breakfast & Snacks -->
     <div class="tab-panel" id="breakfast">
-      <h2>Breakfast</h2>
+      <h2>Breakfast & Snacks</h2>
       <div class="menu-item">
         <span>Fresh Fruit Bowl</span>
         <span class="price">₹290</span>
@@ -117,20 +277,255 @@
         <span class="price">₹250</span>
         <button onclick="addToOrder('Muesli with Milk/Yoghurt', 250)">Add</button>
       </div>
+      <div class="menu-item">
+        <span>Toast with Homemade Jam</span>
+        <span class="price">₹150</span>
+        <button onclick="addToOrder('Toast with Jam', 150)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Boiled Eggs / Plain Omelette / Sunny Side Up / Poached</span>
+        <span class="price">₹190</span>
+        <button onclick="addToOrder('Egg Options', 190)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Masala Omelette</span>
+        <span class="price">₹250</span>
+        <button onclick="addToOrder('Masala Omelette', 250)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Cheese Masala Omelette</span>
+        <span class="price">₹290</span>
+        <button onclick="addToOrder('Cheese Masala Omelette', 290)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Scrambled Eggs on Toast</span>
+        <span class="price">₹250</span>
+        <button onclick="addToOrder('Scrambled Eggs on Toast', 250)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Egg Burji</span>
+        <span class="price">₹350</span>
+        <button onclick="addToOrder('Egg Burji', 350)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Baked Beans on Toast</span>
+        <span class="price">₹190</span>
+        <button onclick="addToOrder('Baked Beans on Toast', 190)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Cheese Chilli Toast</span>
+        <span class="price">₹290</span>
+        <button onclick="addToOrder('Cheese Chilli Toast', 290)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Garlic Mushroom Toast</span>
+        <span class="price">₹290</span>
+        <button onclick="addToOrder('Garlic Mushroom Toast', 290)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Avocado Toast</span>
+        <span class="price">₹450</span>
+        <button onclick="addToOrder('Avocado Toast', 450)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Nutella Toast / French Toast</span>
+        <span class="price">₹290</span>
+        <button onclick="addToOrder('Nutella/French Toast', 290)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Pancakes</span>
+        <span class="price">₹390</span>
+        <button onclick="addToOrder('Pancakes', 390)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Poha</span>
+        <span class="price">₹290</span>
+        <button onclick="addToOrder('Poha', 290)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Upma</span>
+        <span class="price">₹350</span>
+        <button onclick="addToOrder('Upma', 350)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Puri Bhaji</span>
+        <span class="price">₹350</span>
+        <button onclick="addToOrder('Puri Bhaji', 350)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Aloo Paratha</span>
+        <span class="price">₹290</span>
+        <button onclick="addToOrder('Aloo Paratha', 290)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Aamras Puri</span>
+        <span class="price">₹350</span>
+        <button onclick="addToOrder('Aamras Puri', 350)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Healthy Chilla</span>
+        <span class="price">₹290</span>
+        <button onclick="addToOrder('Healthy Chilla', 290)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Hand Cut Potato Fries (Salted/PeriPeri/Truffle Parmesan)</span>
+        <span class="price">₹250 - ₹450</span>
+        <button onclick="addToOrder('Hand Cut Potato Fries', 350)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Pakora (Mix Veg/Onions/Potato/Spinach – Cheese/Paneer)</span>
+        <span class="price">₹290 - ₹350</span>
+        <button onclick="addToOrder('Pakora', 320)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Onion Rings</span>
+        <span class="price">₹290</span>
+        <button onclick="addToOrder('Onion Rings', 290)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Stir Fry Veggies with Mashed Potatoes</span>
+        <span class="price">₹490</span>
+        <button onclick="addToOrder('Stir Fry Veggies', 490)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Veggie Loaded Cheese Grill Sandwich</span>
+        <span class="price">₹350</span>
+        <button onclick="addToOrder('Veggie Cheese Grill Sandwich', 350)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Cheese Tomato Grill Sandwich</span>
+        <span class="price">₹290</span>
+        <button onclick="addToOrder('Cheese Tomato Sandwich', 290)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Spinach & Corn Cheese Grill Sandwich</span>
+        <span class="price">₹350</span>
+        <button onclick="addToOrder('Spinach & Corn Sandwich', 350)">Add</button>
+      </div>
     </div>
     
     <!-- Cocktails -->
     <div class="tab-panel" id="cocktails">
       <h2>Cocktails</h2>
       <div class="menu-item">
+        <span>Classic Margarita</span>
+        <span class="price">₹450</span>
+        <button onclick="addToOrder('Classic Margarita', 450)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Blackberry Bourbon Margarita</span>
+        <span class="price">₹690</span>
+        <button onclick="addToOrder('Blackberry Bourbon Margarita', 690)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Old Fashioned</span>
+        <span class="price">₹590</span>
+        <button onclick="addToOrder('Old Fashioned', 590)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>New York Sour</span>
+        <span class="price">₹690</span>
+        <button onclick="addToOrder('New York Sour', 690)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Whiskey Sour</span>
+        <span class="price">₹590</span>
+        <button onclick="addToOrder('Whiskey Sour', 590)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Manhattan</span>
+        <span class="price">₹690</span>
+        <button onclick="addToOrder('Manhattan', 690)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Piña Colada</span>
+        <span class="price">₹590</span>
+        <button onclick="addToOrder('Piña Colada', 590)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Negroni</span>
+        <span class="price">₹790</span>
+        <button onclick="addToOrder('Negroni', 790)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Pink Lady</span>
+        <span class="price">₹550</span>
+        <button onclick="addToOrder('Pink Lady', 550)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Ramos Gin Fizz</span>
+        <span class="price">₹590</span>
+        <button onclick="addToOrder('Ramos Gin Fizz', 590)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Blueberry Gin Fizz</span>
+        <span class="price">₹490</span>
+        <button onclick="addToOrder('Blueberry Gin Fizz', 490)">Add</button>
+      </div>
+      <div class="menu-item">
         <span>Mojito</span>
         <span class="price">₹450</span>
         <button onclick="addToOrder('Mojito', 450)">Add</button>
       </div>
       <div class="menu-item">
+        <span>Cuba Libre</span>
+        <span class="price">₹450</span>
+        <button onclick="addToOrder('Cuba Libre', 450)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Daiquiri – Plain/Strawberry Frozen</span>
+        <span class="price">₹550</span>
+        <button onclick="addToOrder('Daiquiri', 550)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Elderflower G&T</span>
+        <span class="price">₹590</span>
+        <button onclick="addToOrder('Elderflower G&T', 590)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Vodka Martini</span>
+        <span class="price">₹590</span>
+        <button onclick="addToOrder('Vodka Martini', 590)">Add</button>
+      </div>
+      <div class="menu-item">
         <span>Cosmopolitan</span>
         <span class="price">₹550</span>
         <button onclick="addToOrder('Cosmopolitan', 550)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Moscow Mule</span>
+        <span class="price">₹490</span>
+        <button onclick="addToOrder('Moscow Mule', 490)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>White Russian</span>
+        <span class="price">₹790</span>
+        <button onclick="addToOrder('White Russian', 790)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Sangria</span>
+        <span class="price">₹790</span>
+        <button onclick="addToOrder('Sangria', 790)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Long Island Iced Tea</span>
+        <span class="price">₹790</span>
+        <button onclick="addToOrder('Long Island Iced Tea', 790)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Long Beach Iced Tea</span>
+        <span class="price">₹790</span>
+        <button onclick="addToOrder('Long Beach Iced Tea', 790)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Electric Iced Tea</span>
+        <span class="price">₹890</span>
+        <button onclick="addToOrder('Electric Iced Tea', 890)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Jungle Bird</span>
+        <span class="price">₹690</span>
+        <button onclick="addToOrder('Jungle Bird', 690)">Add</button>
       </div>
     </div>
     
@@ -143,9 +538,44 @@
         <button onclick="addToOrder('Virgin Mojito', 290)">Add</button>
       </div>
       <div class="menu-item">
+        <span>Virgin Piña Colada</span>
+        <span class="price">₹350</span>
+        <button onclick="addToOrder('Virgin Piña Colada', 350)">Add</button>
+      </div>
+      <div class="menu-item">
         <span>Pineapple Cobbler</span>
         <span class="price">₹350</span>
         <button onclick="addToOrder('Pineapple Cobbler', 350)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Blackberry Mojito</span>
+        <span class="price">₹390</span>
+        <button onclick="addToOrder('Blackberry Mojito', 390)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Ginger Spritzer</span>
+        <span class="price">₹290</span>
+        <button onclick="addToOrder('Ginger Spritzer', 290)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Mango Spritzer</span>
+        <span class="price">₹290</span>
+        <button onclick="addToOrder('Mango Spritzer', 290)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Strawberry Slush</span>
+        <span class="price">₹350</span>
+        <button onclick="addToOrder('Strawberry Slush', 350)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Blueberry Slush</span>
+        <span class="price">₹350</span>
+        <button onclick="addToOrder('Blueberry Slush', 350)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Coconut Water Slush</span>
+        <span class="price">₹390</span>
+        <button onclick="addToOrder('Coconut Water Slush', 390)">Add</button>
       </div>
     </div>
     
@@ -158,29 +588,205 @@
         <button onclick="addToOrder('Kingfisher', 150)">Add</button>
       </div>
       <div class="menu-item">
+        <span>Kingfisher Ultra</span>
+        <span class="price">₹190</span>
+        <button onclick="addToOrder('Kingfisher Ultra', 190)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Kingfisher Ultra Max</span>
+        <span class="price">₹250</span>
+        <button onclick="addToOrder('Kingfisher Ultra Max', 250)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Budweiser</span>
+        <span class="price">₹250</span>
+        <button onclick="addToOrder('Budweiser', 250)">Add</button>
+      </div>
+      <div class="menu-item">
         <span>Heineken</span>
         <span class="price">₹250</span>
         <button onclick="addToOrder('Heineken', 250)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Bira White</span>
+        <span class="price">₹250</span>
+        <button onclick="addToOrder('Bira White', 250)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Peoples Lager</span>
+        <span class="price">₹250</span>
+        <button onclick="addToOrder('Peoples Lager', 250)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Hoegaarden</span>
+        <span class="price">₹290</span>
+        <button onclick="addToOrder('Hoegaarden', 290)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Corona</span>
+        <span class="price">₹290</span>
+        <button onclick="addToOrder('Corona', 290)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Budweiser Magnum</span>
+        <span class="price">₹290</span>
+        <button onclick="addToOrder('Budweiser Magnum', 290)">Add</button>
       </div>
     </div>
     
     <!-- Spirits -->
     <div class="tab-panel" id="spirits">
-      <h2>Spirits</h2>
+      <h2>Spirits (30ml)</h2>
+      <!-- Vodka -->
       <div class="menu-item">
-        <span>Smirnoff Vodka [30ml]</span>
+        <span>Smirnoff</span>
         <span class="price">₹150</span>
-        <button onclick="addToOrder('Smirnoff Vodka [30ml]', 150)">Add</button>
+        <button onclick="addToOrder('Smirnoff Vodka', 150)">Add</button>
       </div>
       <div class="menu-item">
-        <span>Bacardi Rum [30ml]</span>
+        <span>Absolue</span>
+        <span class="price">₹190</span>
+        <button onclick="addToOrder('Absolue Vodka', 190)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Ketel One</span>
+        <span class="price">₹250</span>
+        <button onclick="addToOrder('Ketel One Vodka', 250)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Ciroc</span>
+        <span class="price">₹350</span>
+        <button onclick="addToOrder('Ciroc Vodka', 350)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Grey Goose</span>
+        <span class="price">₹390</span>
+        <button onclick="addToOrder('Grey Goose', 390)">Add</button>
+      </div>
+      <!-- Tequila -->
+      <div class="menu-item">
+        <span>El Charro Silver</span>
+        <span class="price">₹190</span>
+        <button onclick="addToOrder('El Charro Silver', 190)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>El Charro Gold</span>
+        <span class="price">₹190</span>
+        <button onclick="addToOrder('El Charro Gold', 190)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Jimador Silver</span>
+        <span class="price">₹350</span>
+        <button onclick="addToOrder('Jimador Silver', 350)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Jimador Gold</span>
+        <span class="price">₹350</span>
+        <button onclick="addToOrder('Jimador Gold', 350)">Add</button>
+      </div>
+      <!-- Aperitif -->
+      <div class="menu-item">
+        <span>Aperol</span>
+        <span class="price">₹290</span>
+        <button onclick="addToOrder('Aperol', 290)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Campari</span>
+        <span class="price">₹390</span>
+        <button onclick="addToOrder('Campari', 390)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Martini</span>
+        <span class="price">₹250</span>
+        <button onclick="addToOrder('Martini', 250)">Add</button>
+      </div>
+      <!-- Rum -->
+      <div class="menu-item">
+        <span>Old Monk</span>
         <span class="price">₹150</span>
-        <button onclick="addToOrder('Bacardi Rum [30ml]', 150)">Add</button>
+        <button onclick="addToOrder('Old Monk Rum', 150)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Bacardi / Cabo</span>
+        <span class="price">₹150</span>
+        <button onclick="addToOrder('Bacardi/Cabo Rum', 150)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Malibu</span>
+        <span class="price">₹350</span>
+        <button onclick="addToOrder('Malibu', 350)">Add</button>
+      </div>
+      <!-- Gin -->
+      <div class="menu-item">
+        <span>Greater Than</span>
+        <span class="price">₹150</span>
+        <button onclick="addToOrder('Greater Than Gin', 150)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Tickle Gin</span>
+        <span class="price">₹190</span>
+        <button onclick="addToOrder('Tickle Gin', 190)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Samsara Pink</span>
+        <span class="price">₹150</span>
+        <button onclick="addToOrder('Samsara Pink', 150)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Samsara ElderFlower</span>
+        <span class="price">₹250</span>
+        <button onclick="addToOrder('Samsara ElderFlower', 250)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Samsara Coffee Hazelnut</span>
+        <span class="price">₹250</span>
+        <button onclick="addToOrder('Samsara Coffee Hazelnut', 250)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Bombay Sapphire</span>
+        <span class="price">₹290</span>
+        <button onclick="addToOrder('Bombay Sapphire', 290)">Add</button>
+      </div>
+      <!-- Liqueurs -->
+      <div class="menu-item">
+        <span>Quaffine Coffee Liqueur</span>
+        <span class="price">₹290</span>
+        <button onclick="addToOrder('Quaffine Coffee Liqueur', 290)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Amaretto</span>
+        <span class="price">₹390</span>
+        <button onclick="addToOrder('Amaretto', 390)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Kahlúa</span>
+        <span class="price">₹390</span>
+        <button onclick="addToOrder('Kahlúa', 390)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Baileys</span>
+        <span class="price">₹390</span>
+        <button onclick="addToOrder('Baileys', 390)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Limoncello</span>
+        <span class="price">₹390</span>
+        <button onclick="addToOrder('Limoncello', 390)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Sambuca</span>
+        <span class="price">₹490</span>
+        <button onclick="addToOrder('Sambuca', 490)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Jägermiester</span>
+        <span class="price">₹590</span>
+        <button onclick="addToOrder('Jägermiester', 590)">Add</button>
       </div>
     </div>
   </div>
   
-  <!-- Order Summary Section -->
+  <!-- Order Summary (persistent panel) -->
   <div id="order-summary" class="order-summary">
     <h2>Order Summary</h2>
     <ul id="order-list"></ul>
