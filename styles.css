@@ -1,4 +1,4 @@
-/* Base Reset & Smooth Scrolling */
+/* Reset & Smooth Scrolling */
 * {
   margin: 0;
   padding: 0;
@@ -10,128 +10,87 @@ body {
   font-family: 'Poppins', sans-serif;
   background: #ffffff;
   color: #03396c;
-  display: flex;
 }
 
-/* Sidebar Styles */
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 250px;
-  height: 100%;
+/* Tab Navigation */
+.tab-container {
   background: #03396c;
-  color: #fff;
-  padding: 20px;
-  overflow-y: auto;
-  transition: transform 0.3s ease;
+  padding: 10px;
 }
-
-.sidebar.hidden {
-  transform: translateX(-100%);
+.tabs {
+  display: flex;
+  overflow-x: auto;
 }
-
-.sidebar h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.sidebar ul {
-  list-style: none;
-}
-
-.sidebar ul li {
-  margin: 10px 0;
-}
-
-.sidebar ul li a {
-  display: block;
-  padding: 8px;
+.tabs .tab {
+  flex: 1;
   background: #026494;
   color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  text-align: center;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
   transition: background 0.3s;
+  font-size: 0.9rem;
 }
-
-.sidebar ul li a:hover {
+.tabs .tab:hover {
+  background: #0288d1;
+}
+.tabs .tab.active {
   background: #0288d1;
 }
 
-.toggle-btn {
-  margin-top: 20px;
-  background: #0288d1;
-  border: none;
-  color: #fff;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/* Bubble Toggle Button (smaller and positioned on center left) */
-.bubble {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 0;
-  transform: translate(-50%, -50%);
-  background: #0288d1;
-  border: none;
-  color: #fff;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  font-size: 1rem;
-  cursor: pointer;
-  z-index: 1000;
-}
-
-/* Main Content Styles */
-.menu-container {
-  margin-left: 270px;
+/* Tab Panels */
+.tab-content {
   padding: 20px;
-  width: calc(100% - 270px);
-  transition: margin-left 0.3s ease, width 0.3s ease;
+}
+.tab-panel {
+  display: none;
+}
+.tab-panel.active {
+  display: block;
 }
 
-.menu-section {
-  background: #f0f8ff;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  box-shadow: 2px 2px 8px rgba(3, 57, 108, 0.2);
-}
-
-.menu-section h2 {
-  border-bottom: 2px solid #03396c;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
-  color: #03396c;
-}
-
+/* Menu Items */
 .menu-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 8px 0;
+  border-bottom: 1px solid #ccc;
 }
-
+.menu-item span {
+  flex: 1;
+}
 .price {
   font-weight: bold;
-  color: #03396c;
+  margin: 0 10px;
 }
 
+/* Buttons */
 button {
   background: #03396c;
-  border: none;
   color: #fff;
+  border: none;
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s;
 }
-
 button:hover {
   background: #026494;
+}
+
+/* Order Summary */
+.order-summary {
+  background: #f0f8ff;
+  padding: 15px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px rgba(3, 57, 108, 0.2);
+}
+.order-summary h2 {
+  margin-bottom: 10px;
+}
+.order-summary ul {
+  list-style: none;
+  margin-bottom: 10px;
 }
