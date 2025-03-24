@@ -3,38 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oceanic F&B Menu</title>
-  <!-- Importing Poppins font -->
+  <title>Oceanic F&B Menu - Tabbed Interface</title>
+  <!-- Import Poppins font for a modern vintage look -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Sidebar Navigation -->
-  <aside class="sidebar" id="sidebar">
-    <h2>Menu</h2>
-    <ul>
-      <li><a href="#hot-drinks">Hot Drinks</a></li>
-      <li><a href="#cold-drinks">Cold Drinks</a></li>
-      <li><a href="#salads">Salads</a></li>
-      <li><a href="#pasta">Pasta</a></li>
-      <li><a href="#bar-bites">Bar Bites</a></li>
-      <li><a href="#breakfast">Breakfast</a></li>
-      <li><a href="#cocktails">Cocktails</a></li>
-      <li><a href="#mocktails">Mocktails</a></li>
-      <li><a href="#beers">Beers</a></li>
-      <li><a href="#spirits">Spirits</a></li>
-    </ul>
-    <button class="toggle-btn" onclick="toggleSidebar()">Close</button>
-  </aside>
+  <!-- Tab Navigation -->
+  <div class="tab-container">
+    <div class="tabs">
+      <button class="tab active" data-tab="hot-drinks">Hot Drinks</button>
+      <button class="tab" data-tab="cold-drinks">Cold Drinks</button>
+      <button class="tab" data-tab="salads">Salads</button>
+      <button class="tab" data-tab="pasta">Pasta</button>
+      <button class="tab" data-tab="bar-bites">Bar Bites</button>
+      <button class="tab" data-tab="breakfast">Breakfast</button>
+      <button class="tab" data-tab="cocktails">Cocktails</button>
+      <button class="tab" data-tab="mocktails">Mocktails</button>
+      <button class="tab" data-tab="beers">Beers</button>
+      <button class="tab" data-tab="spirits">Spirits</button>
+    </div>
+  </div>
 
-  <!-- Bubble Toggle Button (visible when sidebar is closed) -->
-  <button id="bubbleToggle" class="bubble" onclick="toggleSidebar()">&#9776;</button>
-
-  <!-- Main Menu Content -->
-  <main class="menu-container">
-    <section id="hot-drinks" class="menu-section">
+  <!-- Tab Panels -->
+  <div class="tab-content">
+    <!-- Hot Drinks -->
+    <div class="tab-panel active" id="hot-drinks">
       <h2>Hot Drinks</h2>
       <div class="menu-item">
         <span>Immunity Booster</span>
@@ -46,9 +42,10 @@
         <span class="price">₹150</span>
         <button onclick="addToOrder('Masala Tea', 150)">Add</button>
       </div>
-    </section>
-
-    <section id="cold-drinks" class="menu-section">
+    </div>
+    
+    <!-- Cold Drinks -->
+    <div class="tab-panel" id="cold-drinks">
       <h2>Cold Drinks</h2>
       <div class="menu-item">
         <span>Aam Panna</span>
@@ -60,9 +57,25 @@
         <span class="price">₹290</span>
         <button onclick="addToOrder('Cold Coffee', 290)">Add</button>
       </div>
-    </section>
-
-    <section id="pasta" class="menu-section">
+    </div>
+    
+    <!-- Salads -->
+    <div class="tab-panel" id="salads">
+      <h2>Salads</h2>
+      <div class="menu-item">
+        <span>Corn Salad</span>
+        <span class="price">₹350</span>
+        <button onclick="addToOrder('Corn Salad', 350)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Greek Salad</span>
+        <span class="price">₹390</span>
+        <button onclick="addToOrder('Greek Salad', 390)">Add</button>
+      </div>
+    </div>
+    
+    <!-- Pasta -->
+    <div class="tab-panel" id="pasta">
       <h2>Pasta</h2>
       <div class="menu-item">
         <span>Penne Alfredo</span>
@@ -74,9 +87,40 @@
         <span class="price">₹490</span>
         <button onclick="addToOrder('Spaghetti Aglio-e-Olio', 490)">Add</button>
       </div>
-    </section>
-
-    <section id="cocktails" class="menu-section">
+    </div>
+    
+    <!-- Bar Bites -->
+    <div class="tab-panel" id="bar-bites">
+      <h2>Bar Bites</h2>
+      <div class="menu-item">
+        <span>Plain Cashew</span>
+        <span class="price">₹190</span>
+        <button onclick="addToOrder('Plain Cashew', 190)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Peanut Chat</span>
+        <span class="price">₹190</span>
+        <button onclick="addToOrder('Peanut Chat', 190)">Add</button>
+      </div>
+    </div>
+    
+    <!-- Breakfast -->
+    <div class="tab-panel" id="breakfast">
+      <h2>Breakfast</h2>
+      <div class="menu-item">
+        <span>Fresh Fruit Bowl</span>
+        <span class="price">₹290</span>
+        <button onclick="addToOrder('Fresh Fruit Bowl', 290)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Muesli with Milk/Yoghurt</span>
+        <span class="price">₹250</span>
+        <button onclick="addToOrder('Muesli with Milk/Yoghurt', 250)">Add</button>
+      </div>
+    </div>
+    
+    <!-- Cocktails -->
+    <div class="tab-panel" id="cocktails">
       <h2>Cocktails</h2>
       <div class="menu-item">
         <span>Mojito</span>
@@ -88,19 +132,62 @@
         <span class="price">₹550</span>
         <button onclick="addToOrder('Cosmopolitan', 550)">Add</button>
       </div>
-    </section>
-
-    <!-- Additional sections (Salads, Bar Bites, Breakfast, Mocktails, Beers, Spirits) can be added similarly -->
-
-    <!-- Order Summary Section -->
-    <section id="order-summary" class="menu-section">
-      <h2>Order Summary</h2>
-      <ul id="order-list"></ul>
-      <p>Total: ₹<span id="total-price">0</span></p>
-      <button onclick="confirmOrder()">Confirm Order</button>
-    </section>
-  </main>
-
+    </div>
+    
+    <!-- Mocktails -->
+    <div class="tab-panel" id="mocktails">
+      <h2>Mocktails</h2>
+      <div class="menu-item">
+        <span>Virgin Mojito</span>
+        <span class="price">₹290</span>
+        <button onclick="addToOrder('Virgin Mojito', 290)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Pineapple Cobbler</span>
+        <span class="price">₹350</span>
+        <button onclick="addToOrder('Pineapple Cobbler', 350)">Add</button>
+      </div>
+    </div>
+    
+    <!-- Beers -->
+    <div class="tab-panel" id="beers">
+      <h2>Beers</h2>
+      <div class="menu-item">
+        <span>Kingfisher</span>
+        <span class="price">₹150</span>
+        <button onclick="addToOrder('Kingfisher', 150)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Heineken</span>
+        <span class="price">₹250</span>
+        <button onclick="addToOrder('Heineken', 250)">Add</button>
+      </div>
+    </div>
+    
+    <!-- Spirits -->
+    <div class="tab-panel" id="spirits">
+      <h2>Spirits</h2>
+      <div class="menu-item">
+        <span>Smirnoff Vodka [30ml]</span>
+        <span class="price">₹150</span>
+        <button onclick="addToOrder('Smirnoff Vodka [30ml]', 150)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Bacardi Rum [30ml]</span>
+        <span class="price">₹150</span>
+        <button onclick="addToOrder('Bacardi Rum [30ml]', 150)">Add</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Order Summary Section -->
+  <div id="order-summary" class="order-summary">
+    <h2>Order Summary</h2>
+    <ul id="order-list"></ul>
+    <p>Total: ₹<span id="total-price">0</span></p>
+    <button onclick="confirmOrder()">Confirm Order</button>
+  </div>
+  
   <script src="script.js"></script>
 </body>
 </html>
