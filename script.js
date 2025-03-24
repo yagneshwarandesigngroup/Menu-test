@@ -9,15 +9,14 @@ function addToOrder(item, price) {
 function updateOrderSummary() {
   const orderList = document.getElementById("order-list");
   const totalPriceElement = document.getElementById("total-price");
-  
   orderList.innerHTML = "";
   totalPrice = 0;
   
   order.forEach(({ item, price }, index) => {
     totalPrice += price;
-    const listItem = document.createElement("li");
-    listItem.innerHTML = `${item} - ₹${price} <button onclick="removeItem(${index})">X</button>`;
-    orderList.appendChild(listItem);
+    const li = document.createElement("li");
+    li.innerHTML = `${item} - ₹${price} <button onclick="removeItem(${index})">X</button>`;
+    orderList.appendChild(li);
   });
   
   totalPriceElement.innerText = totalPrice;
@@ -33,26 +32,26 @@ function confirmOrder() {
     alert("Your order is empty!");
     return;
   }
-  
-  let orderSummary = "Your Order:\n";
+  let summary = "Your Order:\n";
   order.forEach(({ item, price }) => {
-    orderSummary += `${item} - ₹${price}\n`;
+    summary += `${item} - ₹${price}\n`;
   });
-  orderSummary += `Total: ₹${totalPrice}`;
-  alert(orderSummary);
+  summary += `Total: ₹${totalPrice}`;
+  alert(summary);
 }
 
-function toggleSidebar() {
-  const sidebar = document.getElementById("sidebar");
-  const bubble = document.getElementById("bubbleToggle");
-  
-  // Toggle the hidden class
-  sidebar.classList.toggle("hidden");
-  
-  // Display bubble button only when sidebar is hidden
-  if (sidebar.classList.contains("hidden")) {
-    bubble.style.display = "block";
-  } else {
-    bubble.style.display = "none";
-  }
-}
+// Tabbed Interface Functionality
+const tabs = document.querySelectorAll('.tab');
+const tabPanels = document.querySelectorAll('.tab-panel');
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    // Remove active state from all tabs and panels
+    tabs.forEach(t => t.classList.remove('active'));
+    tabPanels.forEach(panel => panel.classList.remove('active'));
+    
+    // Activate current tab and panel
+    tab.classList.add('active');
+    document.getElementById(tab.getAttribute('data-tab')).classList.add('active');
+  });
+});
