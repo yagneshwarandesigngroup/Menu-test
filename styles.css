@@ -5,7 +5,6 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
-
 body {
   font-family: 'Poppins', sans-serif;
   background: #ffffff;
@@ -39,8 +38,10 @@ body {
   background: #0288d1;
   transform: translateY(-2px);
 }
+/* Active tab merges with panel by turning white */
 .tabs .tab.active {
-  background: #0288d1;
+  background: #ffffff;
+  color: #03396c;
   border-bottom: none;
 }
 
@@ -63,7 +64,7 @@ body {
   opacity: 1;
 }
 
-/* Menu Items */
+/* MENU ITEMS */
 .menu-item {
   display: flex;
   justify-content: space-between;
@@ -74,12 +75,16 @@ body {
 .menu-item span {
   flex: 1;
 }
+.action {
+  display: flex;
+  align-items: center;
+}
 .price {
   font-weight: bold;
-  margin: 0 10px;
+  margin-right: 10px;
 }
 
-/* Buttons */
+/* BUTTONS & ANIMATION */
 button {
   background: #03396c;
   color: #fff;
@@ -92,8 +97,11 @@ button {
 button:hover {
   background: #026494;
 }
+button.clicked {
+  animation: buttonClick 0.3s ease;
+}
 
-/* Order Summary Panel */
+/* ORDER SUMMARY PANEL */
 .order-summary {
   background: #f0f8ff;
   padding: 15px;
@@ -109,8 +117,13 @@ button:hover {
   margin-bottom: 10px;
 }
 
-/* Animation Keyframes */
+/* KEYFRAMES */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+@keyframes buttonClick {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
