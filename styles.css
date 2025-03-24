@@ -1,3 +1,4 @@
+/* Base Reset & Smooth Scrolling */
 * {
   margin: 0;
   padding: 0;
@@ -12,20 +13,27 @@ body {
   display: flex;
 }
 
+/* Sidebar Styles */
 .sidebar {
   position: fixed;
-  left: 0;
   top: 0;
+  left: 0;
   width: 250px;
   height: 100%;
   background: #03396c;
   color: #fff;
   padding: 20px;
-  transition: transform 0.3s;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
 }
 
 .sidebar.hidden {
   transform: translateX(-100%);
+}
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .sidebar ul {
@@ -37,15 +45,31 @@ body {
 }
 
 .sidebar ul li a {
-  color: #fff;
-  text-decoration: none;
   display: block;
   padding: 8px;
   background: #026494;
+  color: #fff;
+  text-decoration: none;
   border-radius: 5px;
   text-align: center;
+  transition: background 0.3s;
 }
 
+.sidebar ul li a:hover {
+  background: #0288d1;
+}
+
+.toggle-btn {
+  margin-top: 20px;
+  background: #0288d1;
+  border: none;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Bubble Toggle Button (smaller and positioned on center left) */
 .bubble {
   display: none;
   position: fixed;
@@ -53,19 +77,22 @@ body {
   left: 0;
   transform: translate(-50%, -50%);
   background: #0288d1;
-  color: #fff;
   border: none;
+  color: #fff;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 1.5rem;
+  width: 30px;
+  height: 30px;
+  font-size: 1rem;
   cursor: pointer;
+  z-index: 1000;
 }
 
+/* Main Content Styles */
 .menu-container {
   margin-left: 270px;
   padding: 20px;
   width: calc(100% - 270px);
+  transition: margin-left 0.3s ease, width 0.3s ease;
 }
 
 .menu-section {
@@ -73,10 +100,38 @@ body {
   padding: 15px;
   border-radius: 10px;
   margin-bottom: 20px;
+  box-shadow: 2px 2px 8px rgba(3, 57, 108, 0.2);
 }
 
-#order-summary {
-  background: #f0f8ff;
-  padding: 15px;
-  border-radius: 10px;
+.menu-section h2 {
+  border-bottom: 2px solid #03396c;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  color: #03396c;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.price {
+  font-weight: bold;
+  color: #03396c;
+}
+
+button {
+  background: #03396c;
+  border: none;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #026494;
 }
