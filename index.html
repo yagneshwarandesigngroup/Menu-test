@@ -1,67 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vintage Menu</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vintage Sea Blue Menu</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar" id="sidebar">
+    <h2>Menu</h2>
+    <ul>
+      <li><a href="#hot-drinks">Hot Drinks</a></li>
+      <li><a href="#cold-drinks">Cold Drinks</a></li>
+      <li><a href="#salads">Salads</a></li>
+      <li><a href="#pasta">Pasta</a></li>
+      <li><a href="#bar-bites">Bar Bites</a></li>
+      <li><a href="#breakfast">Breakfast</a></li>
+      <li><a href="#cocktails">Cocktails</a></li>
+      <li><a href="#mocktails">Mocktails</a></li>
+      <li><a href="#beers">Beers</a></li>
+      <li><a href="#spirits">Spirits</a></li>
+    </ul>
+    <button class="toggle-btn" onclick="toggleSidebar()">Close</button>
+  </aside>
 
-    <!-- Sidebar Navigation -->
-    <aside class="sidebar">
-        <h2>Menu</h2>
-        <ul>
-            <li><a href="#hot-drinks">Hot Drinks</a></li>
-            <li><a href="#cold-drinks">Cold Drinks</a></li>
-            <li><a href="#salads">Salads</a></li>
-            <li><a href="#pasta">Pasta</a></li>
-            <li><a href="#bar-bites">Bar Bites</a></li>
-            <li><a href="#breakfast">Breakfast</a></li>
-            <li><a href="#cocktails">Cocktails</a></li>
-            <li><a href="#mocktails">Mocktails</a></li>
-            <li><a href="#beers">Beers</a></li>
-            <li><a href="#spirits">Spirits</a></li>
-        </ul>
-    </aside>
+  <!-- Bubble Button (appears when sidebar is closed) -->
+  <button id="bubbleToggle" class="bubble" onclick="toggleSidebar()">☰</button>
 
-    <!-- Main Content -->
-    <main class="menu-container">
-        <section id="hot-drinks" class="menu-section">
-            <h2>Hot Drinks</h2>
-            <div class="menu-item">
-                <span>Immunity Booster</span> <span class="price">₹290</span>
-                <button onclick="addToOrder('Immunity Booster', 290)">Add</button>
-            </div>
-            <div class="menu-item">
-                <span>Masala Tea</span> <span class="price">₹150</span>
-                <button onclick="addToOrder('Masala Tea', 150)">Add</button>
-            </div>
-        </section>
+  <!-- Main Content -->
+  <main class="menu-container">
+    <section id="hot-drinks" class="menu-section">
+      <h2>Hot Drinks</h2>
+      <div class="menu-item">
+        <span>Immunity Booster</span> <span class="price">₹290</span>
+        <button onclick="addToOrder('Immunity Booster', 290)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Masala Tea</span> <span class="price">₹150</span>
+        <button onclick="addToOrder('Masala Tea', 150)">Add</button>
+      </div>
+    </section>
 
-        <section id="cold-drinks" class="menu-section">
-            <h2>Cold Drinks</h2>
-            <div class="menu-item">
-                <span>Aam Panna</span> <span class="price">₹250</span>
-                <button onclick="addToOrder('Aam Panna', 250)">Add</button>
-            </div>
-            <div class="menu-item">
-                <span>Cold Coffee</span> <span class="price">₹290</span>
-                <button onclick="addToOrder('Cold Coffee', 290)">Add</button>
-            </div>
-        </section>
+    <section id="cold-drinks" class="menu-section">
+      <h2>Cold Drinks</h2>
+      <div class="menu-item">
+        <span>Aam Panna</span> <span class="price">₹250</span>
+        <button onclick="addToOrder('Aam Panna', 250)">Add</button>
+      </div>
+      <div class="menu-item">
+        <span>Cold Coffee</span> <span class="price">₹290</span>
+        <button onclick="addToOrder('Cold Coffee', 290)">Add</button>
+      </div>
+    </section>
 
-        <!-- More sections can be added here following the same structure -->
+    <!-- More sections can be added here in the same format -->
 
-        <!-- Order Summary -->
-        <section id="order-summary">
-            <h2>Order Summary</h2>
-            <ul id="order-list"></ul>
-            <p>Total: ₹<span id="total-price">0</span></p>
-            <button onclick="confirmOrder()">Confirm Order</button>
-        </section>
-    </main>
+    <!-- Order Summary -->
+    <section id="order-summary">
+      <h2>Order Summary</h2>
+      <ul id="order-list"></ul>
+      <p>Total: ₹<span id="total-price">0</span></p>
+      <button onclick="confirmOrder()">Confirm Order</button>
+    </section>
+  </main>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
