@@ -40,7 +40,7 @@ function confirmOrder() {
   alert(summary);
 }
 
-// Tabbed Interface Functionality
+// Tabbed Interface Functionality with Animation
 const tabs = document.querySelectorAll('.tab');
 const tabPanels = document.querySelectorAll('.tab-panel');
 
@@ -50,8 +50,9 @@ tabs.forEach(tab => {
     tabs.forEach(t => t.classList.remove('active'));
     tabPanels.forEach(panel => panel.classList.remove('active'));
     
-    // Activate current tab and panel
+    // Activate the clicked tab and its corresponding panel
     tab.classList.add('active');
-    document.getElementById(tab.getAttribute('data-tab')).classList.add('active');
+    const activePanel = document.getElementById(tab.getAttribute('data-tab'));
+    activePanel.classList.add('active');
   });
 });
