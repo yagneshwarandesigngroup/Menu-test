@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- Prevent zooming, set fixed scale -->
+  <!-- Prevent zooming -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
   <title>Oceanic F&B Menu - Slanted Tabs</title>
   <!-- Poppins font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -15,7 +16,6 @@
   <!-- Slanted Tabs Container -->
   <div class="tab-container">
     <div class="tabs">
-      <!-- Each tab merges with its content panel when active -->
       <button class="tab active" data-tab="hot-drinks">Hot Drinks</button>
       <button class="tab" data-tab="cold-drinks">Cold Drinks</button>
       <button class="tab" data-tab="raw-juices">Raw Juices & Smoothies</button>
@@ -30,9 +30,8 @@
     </div>
   </div>
 
-  <!-- Slanted Tab Panels -->
+  <!-- Tab Panels -->
   <div class="tab-content">
-    
     <!-- HOT DRINKS -->
     <div class="tab-panel active" id="hot-drinks">
       <h2>Hot Drinks</h2>
@@ -107,7 +106,7 @@
         </div>
       </div>
     </div>
-    
+
     <!-- COLD DRINKS -->
     <div class="tab-panel" id="cold-drinks">
       <h2>Cold Drinks</h2>
@@ -360,7 +359,7 @@
         <span>Muesli with Milk/Yoghurt</span>
         <div class="action">
           <span class="price">₹250</span>
-          <button data-item="Muesli" onclick="addToOrder('Muesli', 250, this)">Add</button>
+          <button data-item="Muesli with Milk/Yoghurt" onclick="addToOrder('Muesli with Milk/Yoghurt', 250, this)">Add</button>
         </div>
       </div>
       <div class="menu-item">
@@ -371,7 +370,7 @@
         </div>
       </div>
       <div class="menu-item">
-        <span>Egg Options (Boiled/Omelette/Sunny Side/Poached)</span>
+        <span>Egg Options (Boiled, Omelette, Sunny Side, Poached)</span>
         <div class="action">
           <span class="price">₹190</span>
           <button data-item="Egg Options" onclick="addToOrder('Egg Options', 190, this)">Add</button>
@@ -497,7 +496,7 @@
         </div>
       </div>
       <div class="menu-item">
-        <span>Pakora (Mix Veg/Onions/Potato/Spinach-Cheese/Paneer)</span>
+        <span>Pakora (Mix Veg/Onions/Potato/Spinach – Cheese/Paneer)</span>
         <div class="action">
           <span class="price">₹290-350</span>
           <button data-item="Pakora" onclick="addToOrder('Pakora', 320, this)">Add</button>
@@ -859,6 +858,7 @@
     <!-- SPIRITS -->
     <div class="tab-panel" id="spirits">
       <h2>Spirits (30ml)</h2>
+      <!-- Vodka -->
       <div class="menu-item">
         <span>Smirnoff</span>
         <div class="action">
@@ -1061,8 +1061,7 @@
         </div>
       </div>
     </div>
-
-  </div><!-- .tab-content -->
+  </div><!-- End of .tab-content -->
 
   <!-- Order Summary Panel -->
   <div id="order-summary" class="order-summary">
