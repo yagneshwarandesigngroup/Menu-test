@@ -73,7 +73,8 @@ function removeItem(item) {
 }
 
 /**
- * Builds a formatted bill message and opens WhatsApp chat with the order details.
+ * Builds a formatted bill message, opens a WhatsApp chat with the order details,
+ * and refreshes the page after a short delay.
  */
 function confirmOrder() {
   if (Object.keys(order).length === 0) {
@@ -98,4 +99,9 @@ function confirmOrder() {
   // Encode the message and open WhatsApp chat with number 9952596777
   const encodedMessage = encodeURIComponent(summary);
   window.open(`https://wa.me/9952596777?text=${encodedMessage}`, '_blank');
+
+  // Refresh the page after 2 seconds (adjust delay as needed)
+  setTimeout(() => {
+    location.reload();
+  }, 2000);
 }
