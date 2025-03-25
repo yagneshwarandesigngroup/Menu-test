@@ -21,12 +21,13 @@ document.addEventListener("DOMContentLoaded", () => {
 let order = {};
 let totalPrice = 0;
 
+/**
+ * Adds an item to the order, updates the order summary and button label.
+ */
 function addToOrder(item, price, btn) {
-  // Animate button
   btn.classList.add("clicked");
   setTimeout(() => btn.classList.remove("clicked"), 300);
 
-  // Increment item count
   if (!order[item]) {
     order[item] = { count: 1, price: price };
   } else {
@@ -36,6 +37,9 @@ function addToOrder(item, price, btn) {
   updateButtonText(item);
 }
 
+/**
+ * Updates the label of the button to show the number of times the item is added.
+ */
 function updateButtonText(item) {
   const btn = document.querySelector(`button[data-item="${item}"]`);
   if (btn) {
@@ -44,6 +48,9 @@ function updateButtonText(item) {
   }
 }
 
+/**
+ * Updates the order summary panel with current order details and total price.
+ */
 function updateOrderSummary() {
   const orderList = document.getElementById("order-list");
   const totalPriceElement = document.getElementById("total-price");
@@ -55,13 +62,19 @@ function updateOrderSummary() {
       const { count, price } = order[item];
       totalPrice += price * count;
       const li = document.createElement("li");
-      li.innerHTML = `${item} - ₹${price} x ${count} <button onclick="removeItem('${item}')">X</button>`;
+      li.innerHTML = `
+        ${item} - ₹${price} x ${count} 
+        <button onclick="removeItem('${item}')">X</button>
+      `;
       orderList.appendChild(li);
     }
   }
   totalPriceElement.innerText = totalPrice;
 }
 
+/**
+ * Removes an item (or decrements its count) from the order.
+ */
 function removeItem(item) {
   if (!order[item]) return;
   order[item].count--;
@@ -72,6 +85,9 @@ function removeItem(item) {
   updateButtonText(item);
 }
 
+/**
+ * When Confirm Order is pressed, builds an order summary message and opens WhatsApp chat.
+ */
 function confirmOrder() {
   if (Object.keys(order).length === 0) {
     alert("Your order is empty!");
@@ -82,8 +98,7 @@ function confirmOrder() {
     summary += `${item} - ₹${order[item].price} x ${order[item].count}\n`;
   }
   summary += `Total: ₹${totalPrice}`;
-  alert(summary);
-  // To send via WhatsApp, uncomment below:
-  // const encoded = encodeURIComponent(summary);
-  // window.open(`https://wa.me/9952596777?text=${encoded}`, '_blank');
+  // Encode the summary and open WhatsApp chat with the number 9952596777
+  const encodedMessage = encodeURIComponent(summary);
+  window.open(`https://wa.me/9952596777?text=${encodedMessage}`, '_blank');
 }
