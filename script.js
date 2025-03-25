@@ -21,13 +21,12 @@ document.addEventListener("DOMContentLoaded", () => {
 let order = {};
 let totalPrice = 0;
 
-/**
- * Adds an item to the order, updates the order summary and button label.
- */
 function addToOrder(item, price, btn) {
+  // Animate button click
   btn.classList.add("clicked");
   setTimeout(() => btn.classList.remove("clicked"), 300);
 
+  // Increment item count
   if (!order[item]) {
     order[item] = { count: 1, price: price };
   } else {
@@ -37,9 +36,6 @@ function addToOrder(item, price, btn) {
   updateButtonText(item);
 }
 
-/**
- * Updates the label of the button to show the number of times the item is added.
- */
 function updateButtonText(item) {
   const btn = document.querySelector(`button[data-item="${item}"]`);
   if (btn) {
@@ -48,9 +44,6 @@ function updateButtonText(item) {
   }
 }
 
-/**
- * Updates the order summary panel with current order details and total price.
- */
 function updateOrderSummary() {
   const orderList = document.getElementById("order-list");
   const totalPriceElement = document.getElementById("total-price");
@@ -62,19 +55,13 @@ function updateOrderSummary() {
       const { count, price } = order[item];
       totalPrice += price * count;
       const li = document.createElement("li");
-      li.innerHTML = `
-        ${item} - ₹${price} x ${count} 
-        <button onclick="removeItem('${item}')">X</button>
-      `;
+      li.innerHTML = `${item} - ₹${price} x ${count} <button onclick="removeItem('${item}')">X</button>`;
       orderList.appendChild(li);
     }
   }
   totalPriceElement.innerText = totalPrice;
 }
 
-/**
- * Removes an item (or decrements its count) from the order.
- */
 function removeItem(item) {
   if (!order[item]) return;
   order[item].count--;
@@ -86,19 +73,29 @@ function removeItem(item) {
 }
 
 /**
- * When Confirm Order is pressed, builds an order summary message and opens WhatsApp chat.
+ * Builds a formatted bill message and opens WhatsApp chat with the order details.
  */
 function confirmOrder() {
   if (Object.keys(order).length === 0) {
     alert("Your order is empty!");
     return;
   }
-  let summary = "Your Order:\n";
+
+  // Build a formatted bill message
+  let summary = "🧾 *Your Bill* 🧾\n";
+  summary += "--------------------------------\n";
   for (const item in order) {
-    summary += `${item} - ₹${order[item].price} x ${order[item].count}\n`;
+    if (order.hasOwnProperty(item)) {
+      const { count, price } = order[item];
+      const itemTotal = price * count;
+      summary += `${item}  -  ₹${price} x ${count}  =  ₹${itemTotal}\n`;
+    }
   }
-  summary += `Total: ₹${totalPrice}`;
-  // Encode the summary and open WhatsApp chat with the number 9952596777
+  summary += "--------------------------------\n";
+  summary += `*Total: ₹${totalPrice}*\n`;
+  summary += "\nThank you for your order!";
+
+  // Encode the message and open WhatsApp chat with number 9952596777
   const encodedMessage = encodeURIComponent(summary);
   window.open(`https://wa.me/9952596777?text=${encodedMessage}`, '_blank');
 }
