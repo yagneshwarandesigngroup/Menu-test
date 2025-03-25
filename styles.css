@@ -1,4 +1,4 @@
-/* Reset & Smooth Scrolling */
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
@@ -7,123 +7,81 @@
 }
 body {
   font-family: 'Poppins', sans-serif;
-  background: #ffffff;
-  color: #03396c;
+  background: #fdfdfd;
+  color: #333;
 }
 
-/* TAB NAVIGATION (File System Look) */
+/* Pill Tabs Container */
 .tab-container {
-  background: #03396c;
+  background: #fdfdfd;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 .tabs {
   display: flex;
+  gap: 0.5rem;
   overflow-x: auto;
-  border-bottom: 2px solid #0288d1;
-  margin-bottom: 0;
+  align-items: center;
 }
 .tabs .tab {
-  flex: 1;
-  background: #026494;
-  color: #fff;
+  background: #f0f0f0;
   border: none;
-  padding: 10px;
+  padding: 0.5rem 1rem;
+  border-radius: 999px; /* Pill shape */
   cursor: pointer;
-  transition: background 0.3s, transform 0.3s;
+  white-space: nowrap;
+  transition: background 0.3s, color 0.3s, transform 0.3s;
   font-size: 0.9rem;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  margin-right: 2px;
 }
 .tabs .tab:hover {
-  background: #0288d1;
-  transform: translateY(-2px);
+  background: #e0e0e0;
+  transform: translateY(-1px);
 }
-/* Active tab merges seamlessly with panel */
 .tabs .tab.active {
   background: #ffffff;
-  color: #03396c;
-  border-bottom: none;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* TAB PANELS */
+/* Tab Content */
 .tab-content {
-  border: 2px solid #0288d1;
-  border-top: none;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  animation: fadeIn 0.4s;
+  border-top: 3px solid #ffffff;
+  padding: 1rem;
 }
 .tab-panel {
   display: none;
   opacity: 0;
   transition: opacity 0.3s ease;
-  padding: 20px;
 }
 .tab-panel.active {
   display: block;
   opacity: 1;
 }
 
-/* MENU ITEMS */
+/* Menu Items */
 .menu-item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 8px 0;
   border-bottom: 1px dashed #ccc;
-}
-.menu-item span {
-  flex: 1;
-}
-.action {
-  display: flex;
-  align-items: center;
+  padding: 0.5rem 0;
 }
 .price {
   font-weight: bold;
-  margin-right: 8px;
+  color: #666;
 }
 
-/* BUTTONS & ANIMATION */
-button {
-  background: #03396c;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-button:hover {
-  background: #026494;
-}
-button.clicked {
-  animation: buttonClick 0.3s ease;
-}
-
-/* ORDER SUMMARY PANEL */
+/* Order Summary (Optional) */
 .order-summary {
-  background: #f0f8ff;
-  padding: 15px;
-  margin: 20px;
-  border-radius: 10px;
-  box-shadow: 2px 2px 8px rgba(3, 57, 108, 0.2);
+  background: #fafafa;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 .order-summary h2 {
-  margin-bottom: 10px;
+  margin-bottom: 0.5rem;
 }
 .order-summary ul {
   list-style: none;
-  margin-bottom: 10px;
-}
-
-/* KEYFRAMES */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes buttonClick {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+  margin-bottom: 0.5rem;
 }
