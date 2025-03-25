@@ -15,12 +15,12 @@ body {
 .tab-container {
   background: #fdfdfd;
   position: relative;
-  border-bottom: 3px solid #ccc; /* anchor line for the tabs */
+  border-bottom: 3px solid #ccc;
 }
 .tabs {
   display: flex;
   overflow-x: auto;
-  align-items: flex-end; /* so the slant aligns at bottom */
+  align-items: flex-end;
 }
 
 /* SLANTED TAB STYLE */
@@ -34,10 +34,8 @@ body {
   font-size: 0.9rem;
   position: relative;
   transition: background 0.3s, transform 0.3s;
-  /* Skew transform for slant */
   transform: skew(-10deg);
 }
-/* Un-skew the text so it appears normal */
 .tab > * {
   transform: skew(10deg);
   display: inline-block;
@@ -50,7 +48,7 @@ body {
   background: #ffffff;
   color: #333;
   border-bottom: none;
-  z-index: 2; /* so it sits above the content panel */
+  z-index: 2;
 }
 
 /* TAB CONTENT */
@@ -58,7 +56,7 @@ body {
   position: relative;
   padding: 1rem;
   background: #fff;
-  z-index: 1; /* behind active tab */
+  z-index: 1;
 }
 .tab-panel {
   display: none;
