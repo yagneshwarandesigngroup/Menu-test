@@ -11,7 +11,7 @@ body {
   color: #333;
 }
 
-/* TABS CONTAINER */
+/* Tabs Container */
 .tab-container {
   background: #fdfdfd;
   position: relative;
@@ -23,7 +23,7 @@ body {
   align-items: flex-end;
 }
 
-/* SLANTED TAB STYLE */
+/* Slanted Tab Style */
 .tab {
   background: #87c0be;
   color: #fff;
@@ -51,7 +51,7 @@ body {
   z-index: 2;
 }
 
-/* TAB CONTENT */
+/* Tab Content */
 .tab-content {
   position: relative;
   padding: 1rem;
@@ -68,7 +68,7 @@ body {
   opacity: 1;
 }
 
-/* MENU ITEMS */
+/* Menu Items */
 .menu-item {
   display: flex;
   justify-content: space-between;
@@ -86,7 +86,7 @@ body {
   font-weight: bold;
 }
 
-/* BUTTON STYLES */
+/* Button Styles */
 button {
   background: #333;
   color: #fff;
@@ -107,7 +107,7 @@ button.clicked {
   100% { transform: scale(1); }
 }
 
-/* ORDER SUMMARY */
+/* Order Summary */
 .order-summary {
   background: #fafafa;
   margin: 1rem;
