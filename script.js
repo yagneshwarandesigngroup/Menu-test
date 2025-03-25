@@ -1,173 +1,115 @@
-const SHEET_ID = "1NKmcZTh1EQ51JrthmIHJHZrcDFY5_-plkFT-5HtYqwA";  // Replace with your actual Sheet ID
-const API_KEY = "https://docs.google.com/spreadsheets/d/AIzaSyAjm63UIqqxBLiTYYqnSnaH3BEvXJRSj68/edit";    // Replace with your secure API key
-
-const SHEET_URL = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1?key=${API_KEY}`;
-
-// Fetch menu data from Google Sheets
-async function fetchMenuData() {
-    try {
-        const response = await fetch(SHEET_URL);
-        const data = await response.json();
-
-        if (data.values) {
-            populateMenu(data.values);
-        } else {
-            console.error("No data found in Google Sheets.");
-        }
-    } catch (error) {
-        console.error("Error fetching menu data:", error);
-    }
-}
-
-// Populate menu dynamically
-function populateMenu(menuItems) {
-    const menuContainer = document.querySelector(".tab-content");
-    menuContainer.innerHTML = "";  // Clear existing content
-
-    let currentCategory = "";
-    let categoryPanel;
-
-    menuItems.slice(1).forEach(row => {  // Skip header row
-        const [category, itemName, description, price, sku] = row;
-
-        if (category !== currentCategory) {
-            // Create a new tab and panel for each category
-            currentCategory = category;
-            createCategoryTab(category);
-            categoryPanel = createCategoryPanel(category);
-            menuContainer.appendChild(categoryPanel);
-        }
-
-        // Add items to the category panel
-        const menuItem = document.createElement("div");
-        menuItem.classList.add("menu-item");
-
-        menuItem.innerHTML = `
-            <span class="item-name">${itemName}</span>
-            <span class="price">₹${price}</span>
-            <button data-sku="${sku}" onclick="addToOrder('${sku}', '${itemName}', ${price}, this)">Add</button>
-        `;
-
-        categoryPanel.appendChild(menuItem);
-    });
-}
-
-// Create category tab
-function createCategoryTab(category) {
-    const tabContainer = document.querySelector(".tabs");
-
-    const tab = document.createElement("button");
-    tab.classList.add("tab");
-    tab.textContent = category;
-    tab.setAttribute("data-tab", category);
-    tab.onclick = () => switchTab(category);
-
-    tabContainer.appendChild(tab);
-}
-
-// Create category panel
-function createCategoryPanel(category) {
-    const panel = document.createElement("div");
-    panel.classList.add("tab-panel");
-    panel.id = category;
-    panel.innerHTML = `<h2>${category}</h2>`;
-
-    return panel;
-}
-
-// Switch between tabs
-function switchTab(category) {
-    document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active"));
-    document.querySelectorAll(".tab-panel").forEach(panel => panel.classList.remove("active"));
-
-    document.querySelector(`[data-tab="${category}"]`).classList.add("active");
-    document.getElementById(category).classList.add("active");
-}
-
-// Order system
+// Order data structure: { "ItemName": { count: number, price: number }, ... }
 let order = {};
 let totalPrice = 0;
 
-// Add item to order
-function addToOrder(sku, itemName, price, btn) {
-    btn.classList.add("clicked");
-    setTimeout(() => btn.classList.remove("clicked"), 300);
-
-    if (!order[sku]) {
-        order[sku] = { name: itemName, count: 1, price: price };
-    } else {
-        order[sku].count++;
-    }
-
-    updateOrderSummary();
+/**
+ * Adds an item to the order, updates summary & button text.
+ */
+function addToOrder(item, price, btn) {
+  // Animate button
+  btn.classList.add("clicked");
+  setTimeout(() => btn.classList.remove("clicked"), 300);
+  
+  // Increment item count
+  if (!order[item]) {
+    order[item] = { count: 1, price: price };
+  } else {
+    order[item].count++;
+  }
+  
+  updateOrderSummary();
+  updateButtonText(item);
 }
 
-// Update order summary
+/**
+ * Updates the "Add" button label to show how many times the user added that item.
+ */
+function updateButtonText(item) {
+  const btn = document.querySelector(`button[data-item="${item}"]`);
+  if (btn) {
+    const count = order[item]?.count || 0;
+    btn.textContent = count > 0 ? `Add (${count})` : "Add";
+  }
+}
+
+/**
+ * Rebuilds the order summary list & total price.
+ */
 function updateOrderSummary() {
-    const orderList = document.getElementById("order-list");
-    const totalPriceElement = document.getElementById("total-price");
-    orderList.innerHTML = "";
-    totalPrice = 0;
-
-    for (const sku in order) {
-        const { name, count, price } = order[sku];
-        totalPrice += price * count;
-
-        const li = document.createElement("li");
-        li.innerHTML = `
-            ${name} - ₹${price} x ${count}
-            <button onclick="removeItem('${sku}')">X</button>
-        `;
-        orderList.appendChild(li);
+  const orderList = document.getElementById("order-list");
+  const totalPriceElement = document.getElementById("total-price");
+  
+  orderList.innerHTML = "";
+  totalPrice = 0;
+  
+  for (const item in order) {
+    if (order[item].count > 0) {
+      const { count, price } = order[item];
+      totalPrice += price * count;
+      
+      const li = document.createElement("li");
+      li.innerHTML = `
+        ${item} - ₹${price} x ${count}
+        <button onclick="removeItem('${item}')">X</button>
+      `;
+      orderList.appendChild(li);
     }
-
-    totalPriceElement.innerText = totalPrice;
+  }
+  
+  totalPriceElement.innerText = totalPrice;
 }
 
-// Remove item from order
-function removeItem(sku) {
-    if (order[sku]) {
-        order[sku].count--;
-        if (order[sku].count <= 0) {
-            delete order[sku];
-        }
-        updateOrderSummary();
-    }
+/**
+ * Removes/decrements an item from the order, or deletes it if count goes to zero.
+ */
+function removeItem(item) {
+  if (!order[item]) return;
+  
+  order[item].count--;
+  if (order[item].count <= 0) {
+    delete order[item];
+  }
+  updateOrderSummary();
+  updateButtonText(item);
 }
 
-// Generate unique order ID
-function generateOrderID() {
-    return `ORD-${Date.now()}`;
-}
-
-// Confirm order and send to WhatsApp
+/**
+ * Called when user clicks "Confirm Order".
+ * Currently shows an alert with the summary.
+ * You can replace this with a WhatsApp link or other logic.
+ */
 function confirmOrder() {
-    if (Object.keys(order).length === 0) {
-        alert("Your order is empty!");
-        return;
-    }
-
-    const orderID = generateOrderID();
-    let message = `*** Oceanic F&B ***\nOrder ID: ${orderID}\n\nItems:\n`;
-
-    for (const sku in order) {
-        const { name, count, price } = order[sku];
-        const lineTotal = price * count;
-        message += `SKU: ${sku}\nItem: ${name}\nQty: ${count} x ₹${price} = ₹${lineTotal}\n\n`;
-    }
-
-    message += `Total: ₹${totalPrice}\n\nThank you for your order!`;
-
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/9952596777?text=${encodedMessage}`;
-
-    window.open(whatsappUrl, "_blank");
-
-    // Reset order after confirming
-    order = {};
-    totalPrice = 0;
-    updateOrderSummary();
+  if (Object.keys(order).length === 0) {
+    alert("Your order is empty!");
+    return;
+  }
+  
+  let summary = "Your Order:\n";
+  for (const item in order) {
+    summary += `${item} - ₹${order[item].price} x ${order[item].count}\n`;
+  }
+  summary += `Total: ₹${totalPrice}`;
+  
+  alert(summary);
+  
+  // Example WhatsApp link if you want to send:
+  // const encoded = encodeURIComponent(summary);
+  // window.open(`https://wa.me/9952596777?text=${encoded}`, '_blank');
 }
 
-// Fetch menu data on page load
-document.addEventListener("DOMContentLoaded", fetchMenuData);
+// Tab switching for slanted tabs
+const tabs = document.querySelectorAll('.tab');
+const tabPanels = document.querySelectorAll('.tab-panel');
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    // Deactivate all tabs & panels
+    tabs.forEach(t => t.classList.remove('active'));
+    tabPanels.forEach(panel => panel.classList.remove('active'));
+    
+    // Activate the clicked tab & its corresponding panel
+    tab.classList.add('active');
+    const panelId = tab.getAttribute('data-tab');
+    document.getElementById(panelId).classList.add('active');
+  });
+});
