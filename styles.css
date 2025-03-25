@@ -1,4 +1,4 @@
-/* Reset & Base */
+/* Reset & Smooth Scrolling */
 * {
   margin: 0;
   padding: 0;
@@ -11,59 +11,65 @@ body {
   color: #333;
 }
 
-/* TABS CONTAINER */
+/* TOP BAR (TAB CONTAINER) */
 .tab-container {
   background: #fdfdfd;
-  position: relative;
-  border-bottom: 3px solid #ccc; /* anchor line for the tabs */
+  padding: 0.5rem 1rem;
+  border-bottom: 5px solid #ccc; /* Thicker bottom border for extra spacing */
+  margin-bottom: 1rem;
 }
 .tabs {
   display: flex;
+  gap: 0.5rem;
   overflow-x: auto;
-  align-items: flex-end; /* so the slant aligns at bottom */
+  align-items: center;
 }
 
-/* SLANTED TAB STYLE */
-.tab {
+/* SLANTED (PILL) TABS */
+.tabs .tab {
   background: #87c0be;
   color: #fff;
   border: none;
   padding: 0.8rem 1rem;
-  margin-right: 2px;
+  border-radius: 999px; /* Full pill shape */
   cursor: pointer;
-  font-size: 0.9rem;
-  position: relative;
   transition: background 0.3s, transform 0.3s;
-  /* Skew transform for slant */
+  font-size: 0.9rem;
   transform: skew(-10deg);
 }
-/* Un-skew the text so it appears normal */
-.tab > * {
+.tabs .tab > * {
   transform: skew(10deg);
   display: inline-block;
 }
-.tab:hover {
+.tabs .tab:hover {
   background: #5b9f9c;
   transform: skew(-10deg) translateY(-2px);
 }
-.tab.active {
+.tabs .tab.active {
   background: #ffffff;
   color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border-bottom: none;
-  z-index: 2; /* so it sits above the content panel */
+  z-index: 2;
 }
 
 /* TAB CONTENT */
 .tab-content {
-  position: relative;
-  padding: 1rem;
   background: #fff;
-  z-index: 1; /* behind active tab */
+  padding: 1rem;
+  border: 2px solid #0288d1;
+  border-top: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  min-height: 300px; /* Ensure enough space for content */
+  position: relative;
+  z-index: 1;
 }
 .tab-panel {
   display: none;
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s ease;
+  padding: 1rem 0;
 }
 .tab-panel.active {
   display: block;
@@ -73,19 +79,26 @@ body {
 /* MENU ITEMS */
 .menu-item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   border-bottom: 1px dashed #ccc;
   padding: 0.5rem 0;
+}
+.menu-item .item-name {
+  flex: 1;
+  margin-right: 1rem;
+  /* Allow multi-line with proper spacing */
+  line-height: 1.4;
 }
 .action {
   display: flex;
   align-items: center;
+  /* Ensure the price and button are on the right */
 }
 .price {
+  font-weight: bold;
   margin-right: 8px;
   color: #666;
-  font-weight: bold;
 }
 
 /* BUTTON STYLES */
@@ -96,6 +109,7 @@ button {
   padding: 0.4rem 0.8rem;
   border-radius: 4px;
   cursor: pointer;
+  transition: background 0.3s;
 }
 button:hover {
   background: #555;
@@ -109,7 +123,7 @@ button.clicked {
   100% { transform: scale(1); }
 }
 
-/* ORDER SUMMARY */
+/* ORDER SUMMARY PANEL */
 .order-summary {
   background: #fafafa;
   margin: 1rem;
@@ -122,5 +136,8 @@ button.clicked {
 }
 .order-summary ul {
   list-style: none;
+  margin-bottom: 0.5rem;
+}
+.order-summary ul li {
   margin-bottom: 0.5rem;
 }
